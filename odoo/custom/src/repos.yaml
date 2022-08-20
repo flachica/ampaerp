@@ -1,0 +1,38 @@
+# See https://github.com/Tecnativa/doodba#optodoocustomsrcreposyaml
+./odoo:
+  defaults:
+    # Shallow repositories ($DEPTH_DEFAULT=1) are faster & thinner
+    # You may need a bigger depth when merging PRs (use $DEPTH_MERGE
+    # for a sane value of 100 commits)
+    depth: $DEPTH_DEFAULT
+  remotes:
+    ocb: https://github.com/OCA/OCB.git
+    odoo: https://github.com/odoo/odoo.git
+    openupgrade: https://github.com/OCA/OpenUpgrade.git
+  target: ocb $ODOO_VERSION
+  merges:
+    - ocb $ODOO_VERSION
+    # Example of a merge of the PR with the number <PR>
+    # - oca refs/pull/<PR>/head
+
+./server-tools:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/server-tools.git
+    anhvu-sg: https://github.com/anhvu-sg/server-tools.git
+  target: oca $ODOO_VERSION-def
+  merges:
+    - anhvu-sg 15.0-mig-auto-backup
+    - oca $ODOO_VERSION
+
+./server-auth:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/server-auth.git
+    flachica: https://github.com/flachica/server-auth.git
+  target: oca $ODOO_VERSION-def
+  merges:
+    - flachica 15.0-mig-auth_admin_passkey
+    - oca $ODOO_VERSION

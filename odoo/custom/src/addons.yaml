@@ -1,0 +1,20 @@
+./rest-framework:
+  - "*"
+
+./community-data-files:
+  - "*"
+
+./server-auth:
+  - "*"
+
+./l10n-spain:
+  - "*"
+
+./web:
+  - "*"
+
+./contract:
+  - "*"
+
+./account-financial-tools:
+  - "*"

@@ -1,0 +1,38 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.0
+_src_path: gh:Tecnativa/doodba-copier-template
+backup_deletion: false
+backup_dst: null
+backup_email_from: null
+backup_email_to: null
+backup_image_version: latest
+backup_tz: UTC
+cidr_whitelist: null
+domains_prod: null
+domains_test: tomaerp.io
+gitlab_url: null
+odoo_dbfilter: ^prod
+odoo_initial_lang: es_ES
+odoo_listdb: true
+odoo_oci_image: null
+odoo_proxy: ""
+odoo_version: 15.0
+paths_without_crawlers:
+  - /web
+  - /website/info
+postgres_cidr_whitelist: null
+postgres_dbname: prod
+postgres_exposed: true
+postgres_exposed_port: 5432
+postgres_username: odoo
+postgres_version: "12"
+project_author: ""
+project_license: no_license
+project_name: tomaerp
+smtp_canonical_default: tomaerp.io
+smtp_canonical_domains: null
+smtp_default_from: null
+smtp_relay_host: mail.example.com
+smtp_relay_port: 587
+smtp_relay_user: tomaerp
+smtp_relay_version: "10"
