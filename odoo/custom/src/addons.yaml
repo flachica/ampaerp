@@ -1,10 +1,10 @@
-./rest-framework:
-  - "*"
-
 ./community-data-files:
   - "*"
 
 ./server-auth:
+  - "*"
+
+./server-tools:
   - "*"
 
 ./l10n-spain:
