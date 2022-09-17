@@ -18,3 +18,12 @@
 
 ./account-financial-tools:
   - "*"
+
+./account-budgeting:
+  - "*"
+
+./vertical-association:
+  - "*"
+
+./knowledge:
+  - "*"

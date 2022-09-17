@@ -21,10 +21,10 @@
   remotes:
     oca: https://github.com/oca/server-tools.git
     anhvu-sg: https://github.com/anhvu-sg/server-tools.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
-    - anhvu-sg 15.0-mig-auto-backup
+    #- anhvu-sg 15.0-mig-auto-backup
 
 ./server-auth:
   defaults:
@@ -32,7 +32,7 @@
   remotes:
     oca: https://github.com/OCA/server-auth.git
     flachica: https://github.com/flachica/server-auth.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - flachica 15.0-mig-auth_admin_passkey
     - oca $ODOO_VERSION
@@ -42,7 +42,7 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/OCA/community-data-files.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
 
@@ -51,7 +51,7 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/OCA/l10n-spain.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
 
@@ -60,7 +60,7 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/OCA/web.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
 
@@ -69,7 +69,7 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/OCA/contract.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
 
@@ -78,6 +78,39 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/OCA/account-financial-tools.git
-  target: oca $ODOO_VERSION-def
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+
+./account-budgeting:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/account-budgeting.git
+    flachica: https://github.com/flachica/account-budgeting.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+    - flachica $ODOO_VERSION-mig-account_budget_oca
+
+./vertical-association:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/vertical-association.git
+    metadonors: https://github.com/metadonors/vertical-association.git
+    flachica: https://github.com/flachica/vertical-association.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+    - metadonors $ODOO_VERSION-mig-membership_extension
+    - flachica $ODOO_VERSION-mig-membership_variable_period
+
+./knowledge:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/knowledge.git
+  target: oca oca_def
   merges:
     - oca $ODOO_VERSION
