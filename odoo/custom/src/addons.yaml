@@ -13,9 +13,6 @@
 ./web:
   - "*"
 
-./contract:
-  - "*"
-
 ./account-financial-tools:
   - "*"
 
@@ -26,4 +23,10 @@
   - "*"
 
 ./knowledge:
+  - "*"
+
+./account-fiscal-rule:
+  - "*"
+
+./account-analytic:
   - "*"

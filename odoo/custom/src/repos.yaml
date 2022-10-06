@@ -37,6 +37,30 @@
     - flachica 15.0-mig-auth_admin_passkey
     - oca $ODOO_VERSION
 
+./account-budgeting:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/account-budgeting.git
+    flachica: https://github.com/flachica/account-budgeting.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+    - flachica $ODOO_VERSION-mig-account_budget_oca
+
+./vertical-association:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/vertical-association.git
+    metadonors: https://github.com/metadonors/vertical-association.git
+    flachica: https://github.com/flachica/vertical-association.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+    - metadonors $ODOO_VERSION-mig-membership_extension
+    - flachica $ODOO_VERSION-mig-membership_variable_period
+
 ./community-data-files:
   defaults:
     depth: $DEPTH_DEFAULT
@@ -64,15 +88,6 @@
   merges:
     - oca $ODOO_VERSION
 
-./contract:
-  defaults:
-    depth: $DEPTH_DEFAULT
-  remotes:
-    oca: https://github.com/OCA/contract.git
-  target: oca oca_def
-  merges:
-    - oca $ODOO_VERSION
-
 ./account-financial-tools:
   defaults:
     depth: $DEPTH_DEFAULT
@@ -82,30 +97,6 @@
   merges:
     - oca $ODOO_VERSION
 
-./account-budgeting:
-  defaults:
-    depth: $DEPTH_DEFAULT
-  remotes:
-    oca: https://github.com/OCA/account-budgeting.git
-    flachica: https://github.com/flachica/account-budgeting.git
-  target: oca oca_def
-  merges:
-    - oca $ODOO_VERSION
-    - flachica $ODOO_VERSION-mig-account_budget_oca
-
-./vertical-association:
-  defaults:
-    depth: $DEPTH_DEFAULT
-  remotes:
-    oca: https://github.com/OCA/vertical-association.git
-    metadonors: https://github.com/metadonors/vertical-association.git
-    flachica: https://github.com/flachica/vertical-association.git
-  target: oca oca_def
-  merges:
-    - oca $ODOO_VERSION
-    - metadonors $ODOO_VERSION-mig-membership_extension
-    - flachica $ODOO_VERSION-mig-membership_variable_period
-
 ./knowledge:
   defaults:
     depth: $DEPTH_DEFAULT
@@ -114,3 +105,24 @@
   target: oca oca_def
   merges:
     - oca $ODOO_VERSION
+
+./account-fiscal-rule:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/account-fiscal-rule.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+
+./account-analytic:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/account-analytic.git
+    flachica: https://github.com/flachica/account-analytic.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+    - flachica 15.0-mig-analytic_activity_based_cost
+    - flachica 15.0-mig-account_analytic_wip
