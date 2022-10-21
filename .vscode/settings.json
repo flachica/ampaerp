@@ -1,0 +1,16 @@
+{
+  "favorites.resources": [
+    {
+      "filePath": "odoo/custom/src/addons.yaml",
+      "group": "Default"
+    },
+    {
+      "filePath": "odoo/custom/src/repos.yaml",
+      "group": "Default"
+    },
+    {
+      "filePath": "odoo/custom/src/private",
+      "group": "Default"
+    }
+  ]
+}

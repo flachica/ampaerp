@@ -20,7 +20,7 @@
 !/.vscode/launch.json
 !/.vscode/settings.json
 !/.vscode/tasks.json
-.vscode/*
+
 /odoo/custom/src/private/.vscode/*
 /.venv
 /doodba.*.code-workspace
