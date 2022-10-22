@@ -2,14 +2,13 @@
 <odoo>
     <data>
         <template id="report_simple_label2x7">
-            <t t-set="barcode_size" t-value="'width:33mm;height:14mm'" />
             <t
                 t-set="table_style"
                 t-value="'width:97mm;height:37.1mm;' + table_style"
             />
-            <td t-att-style="make_invisible and 'visibility:hidden;'">
+            <td>
                 <div class="o_label_full" t-att-style="table_style">
-                    <div class="o_label_name">
+                    <!-- <div class="o_label_name">
                         <strong t-field="partner.name" />
                     </div>
                     <div class="o_label_data">
@@ -17,12 +16,12 @@
                             <span class="text-nowrap" t-field="partner.ref" />
                         </div>
                         <div class="o_label_clear" />
-                    </div>
+                    </div> -->
                 </div>
             </td>
         </template>
 
-        <template id="report_membershiplabel">
+        <template id="report_membershiplabel_partner">
             <t t-call="web.html_container">
                 <t t-if="columns and rows">
                     <t t-if="columns == 2 and rows == 7">
@@ -37,6 +36,13 @@
                         <t
                             t-set="report_to_call"
                             t-value="'ampa_partner_code.report_simple_label4x7'"
+                        />
+                    </t>
+                    <t t-if="columns == 2 and rows == 4">
+                        <t t-set="padding_page" t-value="'padding: 14mm 3mm'" />
+                        <t
+                            t-set="report_to_call"
+                            t-value="'ampa_partner_code.report_simple_label2x4'"
                         />
                     </t>
                     <t t-if="columns == 4 and rows == 12">
@@ -58,7 +64,7 @@
                                             />
                                             <t
                                                 t-set="table_style"
-                                                t-value="'border: 1px solid %s;' % (partner.env.user.company_id.primary_color or 'black')"
+                                                t-value="'border: 1px solid black'"
                                             />
                                             <t t-call="{{report_to_call}}" />
                                         </t>
@@ -71,10 +77,82 @@
             </t>
         </template>
 
+        <template id="report_simple_label4x7">
+            <t
+                t-set="table_style"
+                t-value="'width:47mm;height:37.1mm;' + table_style"
+            />
+            <td t-att-style="make_invisible and 'visibility:hidden;'">
+                <div class="o_label_full" t-att-style="table_style">
+                    <div class="o_label_name">
+                        <!-- <strong t-field="product.display_name"/> -->
+                    </div>
+                    <div class="text-right" style="padding-top:0;padding-bottom:0">
+                        <!-- <t t-if="product.is_product_variant">
+                            <strong class="o_label_price_medium" t-field="product.lst_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                        </t>
+                        <t t-else="">
+                            <strong class="o_label_price_medium" t-field="product.list_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                        </t> -->
+                    </div>
+                </div>
+            </td>
+        </template>
+
+        <template id="report_simple_label2x4">
+            <t t-set="table_style" t-value="'width:85mm;height:53mm;' + table_style" />
+            <td t-att-style="make_invisible and 'visibility:hidden;'">
+                <div class="o_label_full" t-att-style="table_style">
+                    <div class="o_label_name">
+                        <!-- <strong t-field="product.display_name"/> -->
+                    </div>
+                    <div class="text-right" style="padding-top:0;padding-bottom:0">
+                        <!-- <t t-if="product.is_product_variant">
+                            <strong class="o_label_price_medium" t-field="product.lst_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                        </t>
+                        <t t-else="">
+                            <strong class="o_label_price_medium" t-field="product.list_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                        </t> -->
+                    </div>
+                </div>
+            </td>
+        </template>
+
+        <template id="report_simple_label4x12">
+            <t t-set="barcode_size" t-value="'width:33mm;height:4mm'" />
+            <t t-set="table_style" t-value="'width:43mm;height:19mm;' + table_style" />
+            <td t-att-style="make_invisible and 'visibility:hidden;'">
+                <div class="o_label_full o_label_small_text" t-att-style="table_style">
+                    <div class="o_label_name">
+                        <!-- <strong t-field="product.display_name"/> -->
+                    </div>
+                    <t t-if="price_included">
+                        <div class="o_label_left_column">
+                            <!-- <span class="text-nowrap" t-field="product.default_code"/> -->
+                        </div>
+                        <div class="o_label_price_medium text-right">
+                            <!-- <t t-if="product.is_product_variant">
+                                <strong t-field="product.lst_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                            </t>
+                            <t t-else="">
+                                <strong t-field="product.list_price" t-options="{'widget': 'monetary', 'label_price': True}"/>
+                            </t> -->
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="o_label_left_column o_label_full_with">
+                            <!-- <span class="text-nowrap" t-field="product.default_code"/> -->
+                        </div>
+                    </t>
+                </div>
+            </td>
+        </template>
+
+
         <template id="report_partnermembership">
             <t t-call="web.basic_layout">
                 <div class="page">
-                    <t t-call="ampa_partner_code.report_membershiplabel">
+                    <t t-call="ampa_partner_code.report_membershiplabel_partner">
                         <t t-set="partners" t-value="partners" />
                     </t>
                 </div>
@@ -87,7 +165,7 @@
             <field
                 name="view_ids"
                 eval="[(5, 0, 0),
-                    (0, 0, {'view_mode': 'form', 'view_id': ref('partner_label_layout_form')})]"
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('ampa_partner_code.partner_label_layout_form')})]"
             />
             <field name="target">new</field>
         </record>

@@ -8,6 +8,7 @@ class PartnerLabelLayout(models.TransientModel):
     print_format = fields.Selection(
         [
             ("2x7", "2 x 7"),
+            ("2x4", "2 x 4"),
             ("4x7", "4 x 7"),
             ("4x12", "4 x 12"),
         ],
@@ -32,9 +33,21 @@ class PartnerLabelLayout(models.TransientModel):
     def process(self):
         self.ensure_one()
         xml_id = "ampa_partner_code.report_partner_card"
+        #     return {
+        #     'quantity': quantity_by_product,
+
+        #     'price_included': data.get('price_included'),
+        #     'extra_html': layout_wizard.extra_html,
+        # }
         data = {
             "active_model": "res.partner",
             "layout_wizard": self.id,
+            "rows": self.rows,
+            "columns": self.columns,
+            "page_numbers": (len(self.partner_ids) - 1) // (self.rows * self.columns)
+            + 1,
+            "current_quantity": 1,
+            "partners": self.partner_ids,
         }
         report_action = self.env.ref(xml_id).report_action(None, data=data)
         report_action.update({"close_on_report_download": True})

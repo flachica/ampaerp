@@ -12,9 +12,9 @@
     "depends": ["membership"],
     "data": [
         "security/ir.model.access.csv",
+        "wizard/partner_label_layout_views.xml",
         "views/partner_reports.xml",
         "views/membership_views.xml",
-        "wizard/partner_label_layout_views.xml",
     ],
     "maintainers": ["flachica"],
     "application": False,
