@@ -47,7 +47,7 @@ class PartnerLabelLayout(models.TransientModel):
             "page_numbers": (len(self.partner_ids) - 1) // (self.rows * self.columns)
             + 1,
             "current_quantity": 1,
-            "partners": self.partner_ids,
+            "partners": list(self.partner_ids),
         }
         report_action = self.env.ref(xml_id).report_action(None, data=data)
         report_action.update({"close_on_report_download": True})
