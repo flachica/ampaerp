@@ -10,7 +10,12 @@
     "license": "AGPL-3",
     "website": "https://github.com/flachica/ampaerp",
     "depends": ["membership"],
-    "data": [],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/partner_reports.xml",
+        "views/membership_views.xml",
+        "wizard/partner_label_layout_views.xml",
+    ],
     "maintainers": ["flachica"],
     "application": False,
     "installable": True,

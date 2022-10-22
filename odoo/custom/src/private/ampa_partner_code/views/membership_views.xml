@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="membership_tree_view" model="ir.ui.view">
+        <field name="name">membership.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.membership_members_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <header>
+                    <button
+                        string="Print Membership Card"
+                        type="object"
+                        name="action_open_membership_layout"
+                    />
+                </header>
+            </field>
+        </field>
+    </record>
+
+</odoo>
