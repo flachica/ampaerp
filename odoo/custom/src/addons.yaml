@@ -30,3 +30,6 @@
 
 ./account-analytic:
   - "*"
+
+./account-reconcile:
+  - "*"

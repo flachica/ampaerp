@@ -20,11 +20,9 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/oca/server-tools.git
-    anhvu-sg: https://github.com/anhvu-sg/server-tools.git
   target: oca oca_def
   merges:
     - oca $ODOO_VERSION
-    #- anhvu-sg 15.0-mig-auto-backup
 
 ./server-auth:
   defaults:
@@ -126,3 +124,12 @@
     - oca $ODOO_VERSION
     - flachica 15.0-mig-analytic_activity_based_cost
     - flachica 15.0-mig-account_analytic_wip
+
+./account-reconcile:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/oca/account-reconcile.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
