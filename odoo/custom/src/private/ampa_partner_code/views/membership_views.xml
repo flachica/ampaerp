@@ -6,14 +6,22 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="membership.membership_members_tree" />
         <field name="arch" type="xml">
-            <field name="name" position="before">
-                <header>
-                    <button
-                        string="Print Membership Card"
-                        type="object"
-                        name="action_open_membership_layout"
-                    />
-                </header>
+            <field name="name" position="after">
+                <field name="ref" />
+                <field name="mobile" />
+                <field name="phone" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_res_partner_member_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
+        <field name="arch" type="xml">
+            <field name="membership_stop" position="after">
+                <field name="mobile" />
+                <field name="phone" />
             </field>
         </field>
     </record>
