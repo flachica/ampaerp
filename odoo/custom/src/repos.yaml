@@ -24,6 +24,15 @@
   merges:
     - oca $ODOO_VERSION
 
+./server-ux:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/oca/server-ux.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+
 ./server-auth:
   defaults:
     depth: $DEPTH_DEFAULT
@@ -130,6 +139,16 @@
     depth: $DEPTH_DEFAULT
   remotes:
     oca: https://github.com/oca/account-reconcile.git
+  target: oca oca_def
+  merges:
+    - oca $ODOO_VERSION
+
+./bank-statement-import:
+  defaults:
+    depth: $DEPTH_DEFAULT
+  remotes:
+    oca: https://github.com/OCA/bank-statement-import.git
+    flachica: https://github.com/flachica/bank-statement-import.git
   target: oca oca_def
   merges:
     - oca $ODOO_VERSION

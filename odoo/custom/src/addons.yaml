@@ -7,6 +7,9 @@
 ./server-tools:
   - "*"
 
+./server-ux:
+  - "*"
+
 ./l10n-spain:
   - "*"
 
